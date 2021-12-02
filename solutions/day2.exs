@@ -14,8 +14,8 @@ defmodule Submarine do
   end
 end
 
-defmodule Day2 do
-  def solve_part_1 do
+defmodule Day2Part1 do
+  def solve() do
     File.read!("assets/day2_input.txt")
     |> String.trim()
     |> String.splitter("\n")
@@ -31,4 +31,4 @@ defmodule Day2 do
   end
 end
 
-Day2.solve_part_1()
+Day2Part1.solve()
