@@ -7,3 +7,6 @@ erl_crash.dump
 *.ez
 *.beam
 /config/*.secret.exs
+
+# What is this file?
+.DS_Store
