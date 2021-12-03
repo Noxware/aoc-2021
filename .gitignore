@@ -8,5 +8,5 @@ erl_crash.dump
 *.beam
 /config/*.secret.exs
 
-# What is this file?
+# MacOS stuff
 .DS_Store
