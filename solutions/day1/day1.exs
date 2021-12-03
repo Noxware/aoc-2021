@@ -4,9 +4,9 @@ defmodule Day1 do
   @this_file_folder Path.dirname(__ENV__.file)
 
   def solve_part_1() do
-    File.read!("#{@this_file_folder}/input.txt")
-    |> String.trim()
-    |> String.splitter("\n")
+    File.stream!("#{@this_file_folder}/input.txt")
+    |> Stream.filter(&(&1 != ""))
+    |> Stream.map(&String.trim/1)
     |> Stream.map(&String.to_integer/1)
     |> Stream.scan(%{}, fn e, acc -> %{previous: acc[:current], current: e} end)
     |> Stream.drop(1)
@@ -24,9 +24,9 @@ defmodule Day1 do
       acc -> {:cont, Enum.sum(acc), nil}
     end
 
-    File.read!("#{@this_file_folder}/input.txt")
-    |> String.trim()
-    |> String.splitter("\n")
+    File.stream!("#{@this_file_folder}/input.txt")
+    |> Stream.filter(&(&1 != ""))
+    |> Stream.map(&String.trim/1)
     |> Stream.map(&String.to_integer/1)
     # Difference from part 1
     |> Stream.chunk_while([], chunk_fun, after_fun)

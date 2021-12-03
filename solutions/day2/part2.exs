@@ -22,9 +22,9 @@ end
 
 defmodule Day2Part2 do
   def solve() do
-    File.read!("#{Path.dirname(__ENV__.file)}/input.txt")
-    |> String.trim()
-    |> String.splitter("\n")
+    File.stream!("#{Path.dirname(__ENV__.file)}/input.txt")
+    |> Stream.filter(&(&1 != ""))
+    |> Stream.map(&String.trim/1)
     |> Stream.map(&String.split(&1, " "))
     |> Stream.map(fn [instruction, amount] -> [instruction, String.to_integer(amount)] end)
     |> Enum.reduce(%Submarine{}, fn
