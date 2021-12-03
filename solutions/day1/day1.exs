@@ -1,6 +1,10 @@
+#! /usr/bin/env elixir
+
 defmodule Day1 do
+  @this_file_folder Path.dirname(__ENV__.file)
+
   def solve_part_1() do
-    File.read!("assets/day1_input.txt")
+    File.read!("#{@this_file_folder}/input.txt")
     |> String.trim()
     |> String.splitter("\n")
     |> Stream.map(&String.to_integer/1)
@@ -20,7 +24,7 @@ defmodule Day1 do
       acc -> {:cont, Enum.sum(acc), nil}
     end
 
-    File.read!("assets/day1_input.txt")
+    File.read!("#{@this_file_folder}/input.txt")
     |> String.trim()
     |> String.splitter("\n")
     |> Stream.map(&String.to_integer/1)

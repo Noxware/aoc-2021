@@ -1,3 +1,5 @@
+#! /usr/bin/env elixir
+
 defmodule Submarine do
   defstruct horizontal_position: 0, depth: 0
 
@@ -16,7 +18,7 @@ end
 
 defmodule Day2Part1 do
   def solve() do
-    File.read!("assets/day2_input.txt")
+    File.read!("#{Path.dirname(__ENV__.file)}/input.txt")
     |> String.trim()
     |> String.splitter("\n")
     |> Stream.map(&String.split(&1, " "))
