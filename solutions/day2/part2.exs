@@ -20,7 +20,7 @@ defmodule Submarine do
   end
 end
 
-defmodule Day2Part1 do
+defmodule Day2Part2 do
   def solve() do
     File.read!("#{Path.dirname(__ENV__.file)}/input.txt")
     |> String.trim()
@@ -37,4 +37,4 @@ defmodule Day2Part1 do
   end
 end
 
-Day2Part1.solve()
+Day2Part2.solve()
