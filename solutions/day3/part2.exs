@@ -76,10 +76,6 @@ defmodule Day3Part2 do
     bit_value =
       bit_counters
       |> Enum.at(bit_position)
-      |> (fn e ->
-            IO.inspect(rows_of_bits)
-            e
-          end).()
       |> common_fun.()
 
     rows_of_bits
