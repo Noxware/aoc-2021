@@ -3,19 +3,19 @@
 defmodule BitCounter do
   defstruct zeros: 0, ones: 0
 
-  def incrementZeros(counter) do
+  def increment_zeros(counter) do
     %{counter | zeros: counter.zeros + 1}
   end
 
-  def incrementOnes(counter) do
+  def increment_ones(counter) do
     %{counter | ones: counter.ones + 1}
   end
 
-  def mostCommon(counter) do
+  def most_common(counter) do
     if counter.zeros > counter.ones, do: "0", else: "1"
   end
 
-  def lessCommon(counter) do
+  def less_common(counter) do
     if counter.zeros < counter.ones, do: "0", else: "1"
   end
 end
@@ -39,19 +39,19 @@ defmodule Day3Part1 do
       |> Enum.reduce(bit_counters, fn graphemes, acc ->
         Stream.zip(graphemes, acc)
         |> Stream.map(fn
-          {"0", counter} -> BitCounter.incrementZeros(counter)
-          {"1", counter} -> BitCounter.incrementOnes(counter)
+          {"0", counter} -> BitCounter.increment_zeros(counter)
+          {"1", counter} -> BitCounter.increment_ones(counter)
         end)
         |> Enum.to_list()
       end)
 
     gamma_rate =
-      Stream.map(bit_counters, &BitCounter.mostCommon/1)
+      Stream.map(bit_counters, &BitCounter.most_common/1)
       |> Enum.join()
       |> String.to_integer(2)
 
     epsilon_rate =
-      Stream.map(bit_counters, &BitCounter.lessCommon/1)
+      Stream.map(bit_counters, &BitCounter.less_common/1)
       |> Enum.join()
       |> String.to_integer(2)
 
