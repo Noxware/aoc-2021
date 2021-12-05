@@ -15,7 +15,7 @@ defmodule BitCounter do
     if counter.zeros > counter.ones, do: "0", else: "1"
   end
 
-  def less_common(counter) do
+  def least_common(counter) do
     if counter.zeros < counter.ones, do: "0", else: "1"
   end
 end
@@ -51,7 +51,7 @@ defmodule Day3Part1 do
       |> String.to_integer(2)
 
     epsilon_rate =
-      Stream.map(bit_counters, &BitCounter.less_common/1)
+      Stream.map(bit_counters, &BitCounter.least_common/1)
       |> Enum.join()
       |> String.to_integer(2)
 
